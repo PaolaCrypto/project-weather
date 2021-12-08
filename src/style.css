@@ -1,0 +1,23 @@
+h1 {
+  color: lightpink;
+  font-weight: 500;
+  font-size: 20px;
+}
+h2 {
+  color: lightcoral;
+  font-weight: 500;
+}
+.col {
+  color: violet;
+  font-family: "Courier New", Courier, monospace;
+  margin: 10px 20px 30px 40px;
+  border: 20px solid lightpink;
+}
+p {
+  font-size: 30px;
+}
+.main {
+  color: lightcoral;
+  margin: 10px;
+  border: 20px solid lightblue;
+}
