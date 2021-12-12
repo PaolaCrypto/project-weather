@@ -12,6 +12,9 @@ function displayWeather(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
+  console.log(response.data.weather[0].description);
+  let descriptionElement = document.querySelector("#forecast-description");
+  descriptionElement.innerHTML = response.data.weather[0].description;
 }
 
 function search(event) {
@@ -20,6 +23,7 @@ function search(event) {
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = cityInput.value;
   let city = document.querySelector("#search-input-text").value;
+
   let apiKey = `08e5539ad92b0b58141d7bea040430fd`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
