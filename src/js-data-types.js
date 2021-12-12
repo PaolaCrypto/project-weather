@@ -15,6 +15,12 @@ function displayWeather(response) {
   console.log(response.data.weather[0].description);
   document.querySelector("#forecast-description").innerHTML =
     response.data.weather[0].description;
+  console.log(response.data.main.humidity);
+  document.querySelector("#forecast-humidity").innerHTML =
+    response.data.main.humidity;
+  console.log(response.data.main.pressure);
+  document.querySelector("#forecast-pressure").innerHTML =
+    response.data.main.pressure;
 }
 
 function search(event) {
