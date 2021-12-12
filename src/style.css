@@ -26,12 +26,7 @@ p {
 .row {
   width: 20%;
 }
-.weather-app {
-  max width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 10px solid #FC709B;
-}
+
 .units {
   font-size: 20px;
 }
