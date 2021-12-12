@@ -13,8 +13,8 @@ function displayWeather(response) {
     response.data.main.temp
   );
   console.log(response.data.weather[0].description);
-  let descriptionElement = document.querySelector("#forecast-description");
-  descriptionElement.innerHTML = response.data.weather[0].description;
+  document.querySelector("#forecast-description").innerHTML =
+    response.data.weather[0].description;
 }
 
 function search(event) {
