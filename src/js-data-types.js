@@ -27,6 +27,14 @@ function displayWeather(response) {
   console.log(response.data.main.pressure);
   document.querySelector("#forecast-pressure").innerHTML =
     response.data.main.pressure;
+  let iconElement = document.querySelector("#icon");
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function search(event) {
