@@ -34,3 +34,6 @@ p {
   font-size: 25px;
   font-weight: 400;
 }
+.container {
+  max-width: 600px;
+}

@@ -14,17 +14,16 @@ let time = document.querySelector("h3");
 time.innerHTML = `${day} ${hours}:${minutes}`;
 
 function displayWeather(response) {
-  console.log(response.data.main);
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
-  console.log(response.data.weather[0].description);
+
   document.querySelector("#forecast-description").innerHTML =
     response.data.weather[0].description;
-  console.log(response.data.main.humidity);
+
   document.querySelector("#forecast-humidity").innerHTML =
     response.data.main.humidity;
-  console.log(response.data.main.pressure);
+
   document.querySelector("#forecast-pressure").innerHTML =
     response.data.main.pressure;
   let iconElement = document.querySelector("#icon");
@@ -35,6 +34,8 @@ function displayWeather(response) {
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  celciusTemperature = response.data.main.temp;
 }
 
 function search(event) {
@@ -49,14 +50,16 @@ function search(event) {
 
   axios.get(apiUrl).then(displayWeather);
 }
+let celciusTemperature = null;
 
 let form = document.querySelector("#form-id");
 form.addEventListener("submit", search);
 
 function convertToFarenheit(event) {
   event.preventDefault();
+  let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 66;
+  temperatureElement.innerHTML = Math.round(farenheitTemperature);
 }
 
 let farenheitLink = document.querySelector("#farenheit-link");
@@ -65,7 +68,7 @@ farenheitLink.addEventListener("click", convertToFarenheit);
 function convertToCelcius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
 }
 
 let celciusLink = document.querySelector("#celcius-link");
