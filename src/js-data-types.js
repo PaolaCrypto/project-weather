@@ -57,6 +57,8 @@ form.addEventListener("submit", search);
 
 function convertToFarenheit(event) {
   event.preventDefault();
+  celciusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
   let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(farenheitTemperature);
@@ -67,6 +69,8 @@ farenheitLink.addEventListener("click", convertToFarenheit);
 
 function convertToCelcius(event) {
   event.preventDefault();
+  celciusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celciusTemperature);
 }
