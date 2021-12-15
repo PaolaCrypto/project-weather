@@ -24,8 +24,9 @@ function displayWeather(response) {
   document.querySelector("#forecast-humidity").innerHTML =
     response.data.main.humidity;
 
-  document.querySelector("#forecast-pressure").innerHTML =
-    response.data.main.pressure;
+  document.querySelector("#forecast-wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
   let iconElement = document.querySelector("#icon");
   document
     .querySelector("#icon")
