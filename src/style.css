@@ -35,7 +35,7 @@ p {
   font-weight: 400;
 }
 .container {
-  max-width: 600px;
+  max-width: 800px;
 }
 .weather .active {
   color: black;
@@ -43,4 +43,21 @@ p {
 }
 .weather .active:hover {
   text-decoration: none;
+}
+.weather-forecast {
+  text-align: center;
+  font-weight: 600;
+  color: #000;
+  display: inline;
+}
+.weather-forecast-date {
+  opacity: 0.6;
+  display: block;
+}
+.weather-forecast-temperatures {
+  display: inline;
+  font-size: 13px;
+}
+.weather-temperature-min {
+  opacity: 0.6;
 }

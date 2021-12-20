@@ -13,6 +13,35 @@ let day = days[now.getDay()];
 let time = document.querySelector("h3");
 time.innerHTML = `${day} ${hours}:${minutes}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast-days");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Tues", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+     <div class="col-2">
+       <div class="weather-forecast-date">${day}</div>
+       <img
+         src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+         alt="Clear"
+         width="36"
+       />
+
+       <div class="weather-forecast-temperatures">
+         <span class="weather-temperature-max"> 18° </span>
+         <span class="weather-temperature-min"> 12° </span>
+       </div>
+     </div>
+   </div>
+   `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayWeather(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -52,6 +81,8 @@ function search(event) {
   axios.get(apiUrl).then(displayWeather);
 }
 let celciusTemperature = null;
+
+displayForecast();
 
 let form = document.querySelector("#form-id");
 form.addEventListener("submit", search);
