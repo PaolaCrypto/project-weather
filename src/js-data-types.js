@@ -13,7 +13,8 @@ let day = days[now.getDay()];
 let time = document.querySelector("h3");
 time.innerHTML = `${day} ${hours}:${minutes}`;
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast-days");
   let forecastHTML = `<div class="row">`;
   let days = ["Tues", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -41,6 +42,14 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = `08e5539ad92b0b58141d7bea040430fd`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayWeather(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -65,6 +74,8 @@ function displayWeather(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   celciusTemperature = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 function search(event) {
@@ -80,8 +91,6 @@ function search(event) {
   axios.get(apiUrl).then(displayWeather);
 }
 let celciusTemperature = null;
-
-displayForecast();
 
 let form = document.querySelector("#form-id");
 form.addEventListener("submit", search);

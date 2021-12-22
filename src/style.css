@@ -23,10 +23,6 @@ p {
   border: 20px solid lightblue;
 }
 
-.row {
-  width: 20%;
-}
-
 .units {
   font-size: 20px;
 }
@@ -61,6 +57,6 @@ p {
 .weather-temperature-min {
   opacity: 0.6;
 }
-.img {
-  box-sizing: none;
+.row {
+  width: 50%;
 }
