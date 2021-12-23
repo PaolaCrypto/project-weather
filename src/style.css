@@ -33,6 +33,7 @@ p {
 .container {
   max-width: 800px;
   border: 1px solid black;
+  background-color: #ffe8cf;
 }
 .weather .active {
   color: black;
