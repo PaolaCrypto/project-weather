@@ -111,7 +111,6 @@ function searchCity(city) {
   axios.get(apiUrl).then(displayWeather);
 }
 searchCity("Sigriswil");
-let celciusTemperature = null;
 
 let form = document.querySelector("#form-id");
 form.addEventListener("submit", search);
@@ -122,8 +121,7 @@ function getCurrentLocation(event) {
 }
 function searchLocation(position) {
   let apiKey = `08e5539ad92b0b58141d7bea040430fd`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
-
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayWeather);
 }
 let button = document.querySelector("#current-location-button");
