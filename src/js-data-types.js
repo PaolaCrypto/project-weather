@@ -93,6 +93,8 @@ function displayWeather(response) {
   celciusTemperature = response.data.main.temp;
 
   getForecast(response.data.coord);
+  console.log(response.data.name);
+  document.querySelector("#city").innerHTML = response.data.name;
 }
 
 function search(event) {
